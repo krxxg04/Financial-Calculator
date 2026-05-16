@@ -1,6 +1,7 @@
 #pragma once
 
-namespace finance::presentation {
+namespace finance {
+namespace presentation {
 
 class ConsoleMenu {
 public:
@@ -8,4 +9,5 @@ public:
     void showOptions() const;
 };
 
-}  // namespace finance::presentation
+}  // namespace presentation
+}  // namespace finance

@@ -2,18 +2,20 @@
 
 #include <string>
 
-namespace finance::domain::entities {
+namespace finance {
+namespace domain {
+namespace entities {
 
 class CalculationResult {
 public:
     CalculationResult(std::string operation, std::string inputSummary, std::string outputSummary, std::string timestamp = "");
 
-    [[nodiscard]] const std::string& operation() const;
-    [[nodiscard]] const std::string& inputSummary() const;
-    [[nodiscard]] const std::string& outputSummary() const;
-    [[nodiscard]] const std::string& timestamp() const;
+    const std::string& operation() const;
+    const std::string& inputSummary() const;
+    const std::string& outputSummary() const;
+    const std::string& timestamp() const;
 
-    [[nodiscard]] std::string toDisplayString() const;
+    std::string toDisplayString() const;
     static std::string currentTimestamp();
 
 private:
@@ -23,4 +25,6 @@ private:
     std::string timestamp_;
 };
 
-}  // namespace finance::domain::entities
+}  // namespace entities
+}  // namespace domain
+}  // namespace finance

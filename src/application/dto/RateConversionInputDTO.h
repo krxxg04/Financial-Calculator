@@ -1,10 +1,14 @@
 #pragma once
 
-namespace finance::application::dto {
+namespace finance {
+namespace application {
+namespace dto {
 
 struct RateConversionInputDTO {
     double ratePercent{0.0};
     int periodsPerYear{12};
 };
 
-}  // namespace finance::application::dto
+}  // namespace dto
+}  // namespace application
+}  // namespace finance

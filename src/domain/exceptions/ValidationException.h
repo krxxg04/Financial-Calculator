@@ -4,11 +4,15 @@
 
 #include "domain/exceptions/DomainException.h"
 
-namespace finance::domain::exceptions {
+namespace finance {
+namespace domain {
+namespace exceptions {
 
 class ValidationException : public DomainException {
 public:
     explicit ValidationException(const std::string& message) : DomainException(message) {}
 };
 
-}  // namespace finance::domain::exceptions
+}  // namespace exceptions
+}  // namespace domain
+}  // namespace finance

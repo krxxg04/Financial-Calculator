@@ -1,6 +1,8 @@
 #pragma once
 
-namespace finance::application::dto {
+namespace finance {
+namespace application {
+namespace dto {
 
 struct CalculationInputDTO {
     double amount{0.0};
@@ -8,4 +10,6 @@ struct CalculationInputDTO {
     int periods{1};
 };
 
-}  // namespace finance::application::dto
+}  // namespace dto
+}  // namespace application
+}  // namespace finance

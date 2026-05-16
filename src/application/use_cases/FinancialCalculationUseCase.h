@@ -9,7 +9,9 @@
 #include "domain/services/FinancialCalculatorService.h"
 #include "domain/services/HistoryRepository.h"
 
-namespace finance::application::use_cases {
+namespace finance {
+namespace application {
+namespace use_cases {
 
 class FinancialCalculationUseCase {
 public:
@@ -24,7 +26,7 @@ public:
     domain::entities::CalculationResult executeTeaToPeriodic(const dto::RateConversionInputDTO& input);
     domain::entities::CalculationResult executeFixedInstallment(const dto::CalculationInputDTO& input);
 
-    [[nodiscard]] std::vector<domain::entities::CalculationResult> getHistory() const;
+    std::vector<domain::entities::CalculationResult> getHistory() const;
 
 private:
     domain::entities::CalculationResult saveResult(const std::string& operation,
@@ -38,4 +40,6 @@ private:
     domain::services::HistoryRepository& historyRepository_;
 };
 
-}  // namespace finance::application::use_cases
+}  // namespace use_cases
+}  // namespace application
+}  // namespace finance

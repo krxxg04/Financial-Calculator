@@ -1,15 +1,19 @@
 #pragma once
 
-namespace finance::domain::value_objects {
+namespace finance {
+namespace domain {
+namespace value_objects {
 
 class Money {
 public:
     explicit Money(double amount);
 
-    [[nodiscard]] double amount() const;
+    double amount() const;
 
 private:
     double amount_;
 };
 
-}  // namespace finance::domain::value_objects
+}  // namespace value_objects
+}  // namespace domain
+}  // namespace finance

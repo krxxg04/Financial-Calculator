@@ -4,7 +4,9 @@
 
 #include "domain/exceptions/ValidationException.h"
 
-namespace finance::domain::value_objects {
+namespace finance {
+namespace domain {
+namespace value_objects {
 
 Money::Money(double amount) : amount_(amount) {
     if (!std::isfinite(amount_)) {
@@ -17,4 +19,6 @@ Money::Money(double amount) : amount_(amount) {
 
 double Money::amount() const { return amount_; }
 
-}  // namespace finance::domain::value_objects
+}  // namespace value_objects
+}  // namespace domain
+}  // namespace finance

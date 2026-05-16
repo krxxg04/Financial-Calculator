@@ -1,6 +1,8 @@
 #pragma once
 
-namespace finance::domain::value_objects {
+namespace finance {
+namespace domain {
+namespace value_objects {
 
 class InterestRate {
 public:
@@ -8,11 +10,13 @@ public:
 
     static InterestRate fromPercentage(double percent);
 
-    [[nodiscard]] double rate() const;
-    [[nodiscard]] double asPercentage() const;
+    double rate() const;
+    double asPercentage() const;
 
 private:
     double rate_;
 };
 
-}  // namespace finance::domain::value_objects
+}  // namespace value_objects
+}  // namespace domain
+}  // namespace finance

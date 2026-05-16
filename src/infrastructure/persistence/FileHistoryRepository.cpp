@@ -5,7 +5,9 @@
 #include <stdexcept>
 #include <utility>
 
-namespace finance::infrastructure::persistence {
+namespace finance {
+namespace infrastructure {
+namespace persistence {
 
 FileHistoryRepository::FileHistoryRepository(std::string filePath) : filePath_(std::move(filePath)) {}
 
@@ -68,4 +70,6 @@ std::vector<std::string> FileHistoryRepository::split(const std::string& line, c
     return parts;
 }
 
-}  // namespace finance::infrastructure::persistence
+}  // namespace persistence
+}  // namespace infrastructure
+}  // namespace finance

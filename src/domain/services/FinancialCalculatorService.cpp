@@ -4,7 +4,9 @@
 
 #include "domain/exceptions/ValidationException.h"
 
-namespace finance::domain::services {
+namespace finance {
+namespace domain {
+namespace services {
 
 SimpleInterestData FinancialCalculatorService::calculateSimpleInterest(const value_objects::Money& capital,
                                                                        const value_objects::InterestRate& rate,
@@ -79,4 +81,6 @@ value_objects::Money FinancialCalculatorService::calculateFixedInstallment(const
     return value_objects::Money(installment);
 }
 
-}  // namespace finance::domain::services
+}  // namespace services
+}  // namespace domain
+}  // namespace finance

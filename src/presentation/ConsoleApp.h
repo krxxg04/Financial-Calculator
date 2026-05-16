@@ -4,7 +4,8 @@
 #include "domain/entities/CalculationResult.h"
 #include "presentation/ConsoleMenu.h"
 
-namespace finance::presentation {
+namespace finance {
+namespace presentation {
 
 class ConsoleApp {
 public:
@@ -29,4 +30,5 @@ private:
     ConsoleMenu menu_;
 };
 
-}  // namespace finance::presentation
+}  // namespace presentation
+}  // namespace finance

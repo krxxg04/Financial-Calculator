@@ -1,15 +1,34 @@
 #include "infrastructure/utils/InputValidator.h"
 
 #include <iostream>
+#include <stdexcept>
 #include <string>
 
-namespace finance::infrastructure::utils {
+namespace finance {
+namespace infrastructure {
+namespace utils {
+
+namespace {
+
+std::string trimCopy(const std::string& text) {
+    const std::size_t begin = text.find_first_not_of(" \t\n\r");
+    if (begin == std::string::npos) {
+        return "";
+    }
+
+    const std::size_t end = text.find_last_not_of(" \t\n\r");
+    return text.substr(begin, end - begin + 1);
+}
+
+}  // namespace
 
 double InputValidator::readDouble(const std::string& prompt) {
     while (true) {
         std::cout << prompt;
         std::string input;
-        std::getline(std::cin, input);
+        if (!std::getline(std::cin, input)) {
+            throw std::runtime_error("No se pudo leer la entrada del usuario.");
+        }
 
         double value = 0.0;
         if (tryParseDouble(input, value)) {
@@ -35,7 +54,9 @@ int InputValidator::readPositiveInt(const std::string& prompt) {
     while (true) {
         std::cout << prompt;
         std::string input;
-        std::getline(std::cin, input);
+        if (!std::getline(std::cin, input)) {
+            throw std::runtime_error("No se pudo leer la entrada del usuario.");
+        }
 
         int value = 0;
         if (tryParseInt(input, value) && value > 0) {
@@ -50,7 +71,9 @@ int InputValidator::readIntInRange(const std::string& prompt, int min, int max) 
     while (true) {
         std::cout << prompt;
         std::string input;
-        std::getline(std::cin, input);
+        if (!std::getline(std::cin, input)) {
+            throw std::runtime_error("No se pudo leer la entrada del usuario.");
+        }
 
         int value = 0;
         if (tryParseInt(input, value) && value >= min && value <= max) {
@@ -63,9 +86,14 @@ int InputValidator::readIntInRange(const std::string& prompt, int min, int max) 
 
 bool InputValidator::tryParseDouble(const std::string& text, double& value) {
     try {
+        const std::string normalized = trimCopy(text);
+        if (normalized.empty()) {
+            return false;
+        }
+
         std::size_t processed = 0;
-        value = std::stod(text, &processed);
-        return processed == text.size();
+        value = std::stod(normalized, &processed);
+        return processed == normalized.size();
     } catch (...) {
         return false;
     }
@@ -73,12 +101,19 @@ bool InputValidator::tryParseDouble(const std::string& text, double& value) {
 
 bool InputValidator::tryParseInt(const std::string& text, int& value) {
     try {
+        const std::string normalized = trimCopy(text);
+        if (normalized.empty()) {
+            return false;
+        }
+
         std::size_t processed = 0;
-        value = std::stoi(text, &processed);
-        return processed == text.size();
+        value = std::stoi(normalized, &processed);
+        return processed == normalized.size();
     } catch (...) {
         return false;
     }
 }
 
-}  // namespace finance::infrastructure::utils
+}  // namespace utils
+}  // namespace infrastructure
+}  // namespace finance

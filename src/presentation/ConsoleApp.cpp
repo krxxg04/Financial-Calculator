@@ -7,7 +7,8 @@
 #include "application/dto/RateConversionInputDTO.h"
 #include "infrastructure/utils/InputValidator.h"
 
-namespace finance::presentation {
+namespace finance {
+namespace presentation {
 
 ConsoleApp::ConsoleApp(application::use_cases::FinancialCalculationUseCase& useCase) : useCase_(useCase) {}
 
@@ -18,10 +19,10 @@ void ConsoleApp::run() {
         menu_.showTitle();
         menu_.showOptions();
 
-        const int option = infrastructure::utils::InputValidator::readIntInRange("Selecciona una opcion: ", 0, 9);
-        std::cout << '\n';
-
         try {
+            const int option = infrastructure::utils::InputValidator::readIntInRange("Selecciona una opcion: ", 0, 9);
+            std::cout << '\n';
+
             switch (option) {
                 case 1:
                     handleSimpleInterest();
@@ -60,12 +61,19 @@ void ConsoleApp::run() {
             }
         } catch (const std::exception& ex) {
             std::cout << "No se pudo completar la operacion: " << ex.what() << '\n';
+            if (std::cin.eof()) {
+                std::cout << "Entrada finalizada. Cerrando aplicacion.\n";
+                break;
+            }
         }
 
         if (running) {
             std::cout << "\nPresiona Enter para continuar...";
             std::string temp;
-            std::getline(std::cin, temp);
+            if (!std::getline(std::cin, temp)) {
+                std::cout << "\nEntrada finalizada. Cerrando aplicacion.\n";
+                break;
+            }
         }
     }
 }
@@ -150,4 +158,5 @@ void ConsoleApp::printResult(const domain::entities::CalculationResult& result) 
     std::cout << "Resultado: " << result.outputSummary() << '\n';
 }
 
-}  // namespace finance::presentation
+}  // namespace presentation
+}  // namespace finance

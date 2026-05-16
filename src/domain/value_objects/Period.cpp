@@ -2,7 +2,9 @@
 
 #include "domain/exceptions/ValidationException.h"
 
-namespace finance::domain::value_objects {
+namespace finance {
+namespace domain {
+namespace value_objects {
 
 Period::Period(int value) : value_(value) {
     if (value_ <= 0) {
@@ -12,4 +14,6 @@ Period::Period(int value) : value_(value) {
 
 int Period::value() const { return value_; }
 
-}  // namespace finance::domain::value_objects
+}  // namespace value_objects
+}  // namespace domain
+}  // namespace finance
