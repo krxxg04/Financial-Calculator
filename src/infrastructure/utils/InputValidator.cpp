@@ -1,6 +1,5 @@
 #include "infrastructure/utils/InputValidator.h"
 
-#include <cctype>
 #include <iostream>
 #include <string>
 

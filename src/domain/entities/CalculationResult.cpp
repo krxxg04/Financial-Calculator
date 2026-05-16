@@ -4,6 +4,7 @@
 #include <ctime>
 #include <iomanip>
 #include <sstream>
+#include <utility>
 
 namespace finance::domain::entities {
 

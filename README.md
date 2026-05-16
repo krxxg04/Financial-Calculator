@@ -1,35 +1,35 @@
 # cpp-financial-calculator
 
-Calculadora financiera de consola en C++17, con arquitectura inspirada en Domain-Driven Design (DDD) y separación por capas:
+Calculadora financiera de consola en C++17, con arquitectura inspirada en Domain-Driven Design (DDD) y separacion por capas:
 
 - `domain`
 - `application`
 - `infrastructure`
 - `presentation`
 
-Incluye cálculos de interés, valor del dinero en el tiempo, conversiones de tasas, cuota fija de préstamo e historial persistido en archivo.
+Incluye calculos de interes, valor del dinero en el tiempo, conversiones de tasas, cuota fija de prestamo e historial persistido en archivo.
 
 ## Funcionalidades
 
-1. Interés simple  
+1. Interes simple  
    - `I = C * i * n`
    - `M = C + I`
-2. Interés compuesto  
+2. Interes compuesto  
    - `M = C * (1 + i)^n`
    - `I = M - C`
 3. Valor futuro  
    - `VF = VP * (1 + i)^n`
 4. Valor presente  
    - `VP = VF / (1 + i)^n`
-5. Conversión TEA a TEM  
+5. Conversion TEA a TEM  
    - `TEM = (1 + TEA)^(1/12) - 1`
-6. Conversión TEM a TEA  
+6. Conversion TEM a TEA  
    - `TEA = (1 + TEM)^12 - 1`
-7. Conversión TEA a tasa periódica  
+7. Conversion TEA a tasa periodica  
    - `i_p = (1 + TEA)^(1/m) - 1`
-8. Cálculo de cuota fija de préstamo  
+8. Calculo de cuota fija de prestamo  
    - `R = P * [i(1+i)^n] / [(1+i)^n - 1]`
-9. Historial de cálculos guardado en `history.log`
+9. Historial de calculos guardado en `history.log`
 
 ## Estructura del proyecto
 
@@ -72,7 +72,7 @@ build/Debug/cpp-financial-calculator.exe
 
 ## Tests básicos
 
-El proyecto incluye pruebas simples sin librerías externas, usando `assert` y `CTest`.
+El proyecto incluye pruebas simples sin librerias externas, usando `assert` y `CTest`.
 
 ```bash
 ctest --test-dir build --output-on-failure
@@ -86,7 +86,7 @@ También puedes ejecutar directamente:
 
 ## Principios aplicados
 
-- Programación orientada a objetos (POO).
+- Programacion orientada a objetos (POO).
 - Principios SOLID (responsabilidades separadas por capa y por clase).
-- Validación de entradas y manejo de errores.
-- Persistencia desacoplada vía interfaz `HistoryRepository` y adaptación `FileHistoryRepository`.
+- Validacion de entradas y manejo de errores.
+- Persistencia desacoplada via interfaz `HistoryRepository` y adaptacion `FileHistoryRepository`.
