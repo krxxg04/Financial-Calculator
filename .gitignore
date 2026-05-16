@@ -1,0 +1,12 @@
+build/
+out/
+bin/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.log
+.vs/
+.vscode/
+.idea/
+history.log
