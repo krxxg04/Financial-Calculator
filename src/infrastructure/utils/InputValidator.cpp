@@ -4,7 +4,9 @@
 #include <stdexcept>
 #include <string>
 
-namespace finance::infrastructure::utils {
+namespace finance {
+namespace infrastructure {
+namespace utils {
 
 namespace {
 
@@ -112,4 +114,6 @@ bool InputValidator::tryParseInt(const std::string& text, int& value) {
     }
 }
 
-}  // namespace finance::infrastructure::utils
+}  // namespace utils
+}  // namespace infrastructure
+}  // namespace finance

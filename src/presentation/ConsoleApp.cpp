@@ -7,7 +7,8 @@
 #include "application/dto/RateConversionInputDTO.h"
 #include "infrastructure/utils/InputValidator.h"
 
-namespace finance::presentation {
+namespace finance {
+namespace presentation {
 
 ConsoleApp::ConsoleApp(application::use_cases::FinancialCalculationUseCase& useCase) : useCase_(useCase) {}
 
@@ -157,4 +158,5 @@ void ConsoleApp::printResult(const domain::entities::CalculationResult& result) 
     std::cout << "Resultado: " << result.outputSummary() << '\n';
 }
 
-}  // namespace finance::presentation
+}  // namespace presentation
+}  // namespace finance

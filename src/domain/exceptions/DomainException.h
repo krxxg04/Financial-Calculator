@@ -3,11 +3,15 @@
 #include <stdexcept>
 #include <string>
 
-namespace finance::domain::exceptions {
+namespace finance {
+namespace domain {
+namespace exceptions {
 
 class DomainException : public std::runtime_error {
 public:
     explicit DomainException(const std::string& message) : std::runtime_error(message) {}
 };
 
-}  // namespace finance::domain::exceptions
+}  // namespace exceptions
+}  // namespace domain
+}  // namespace finance

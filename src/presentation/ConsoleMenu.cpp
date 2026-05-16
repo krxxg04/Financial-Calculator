@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-namespace finance::presentation {
+namespace finance {
+namespace presentation {
 
 void ConsoleMenu::showTitle() const {
     std::cout << "\n==========================================\n";
@@ -23,4 +24,5 @@ void ConsoleMenu::showOptions() const {
     std::cout << "0. Salir\n";
 }
 
-}  // namespace finance::presentation
+}  // namespace presentation
+}  // namespace finance

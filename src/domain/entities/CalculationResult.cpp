@@ -6,7 +6,9 @@
 #include <sstream>
 #include <utility>
 
-namespace finance::domain::entities {
+namespace finance {
+namespace domain {
+namespace entities {
 
 CalculationResult::CalculationResult(std::string operation, std::string inputSummary, std::string outputSummary, std::string timestamp)
     : operation_(std::move(operation)),
@@ -44,4 +46,6 @@ std::string CalculationResult::currentTimestamp() {
     return oss.str();
 }
 
-}  // namespace finance::domain::entities
+}  // namespace entities
+}  // namespace domain
+}  // namespace finance

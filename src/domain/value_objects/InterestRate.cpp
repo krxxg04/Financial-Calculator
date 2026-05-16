@@ -4,7 +4,9 @@
 
 #include "domain/exceptions/ValidationException.h"
 
-namespace finance::domain::value_objects {
+namespace finance {
+namespace domain {
+namespace value_objects {
 
 InterestRate::InterestRate(double rate) : rate_(rate) {
     if (!std::isfinite(rate_)) {
@@ -21,4 +23,6 @@ double InterestRate::rate() const { return rate_; }
 
 double InterestRate::asPercentage() const { return rate_ * 100.0; }
 
-}  // namespace finance::domain::value_objects
+}  // namespace value_objects
+}  // namespace domain
+}  // namespace finance

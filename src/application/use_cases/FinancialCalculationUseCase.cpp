@@ -3,7 +3,9 @@
 #include <iomanip>
 #include <sstream>
 
-namespace finance::application::use_cases {
+namespace finance {
+namespace application {
+namespace use_cases {
 
 namespace {
 using domain::value_objects::InterestRate;
@@ -137,4 +139,6 @@ std::string FinancialCalculationUseCase::toNumberText(double value, int precisio
     return oss.str();
 }
 
-}  // namespace finance::application::use_cases
+}  // namespace use_cases
+}  // namespace application
+}  // namespace finance

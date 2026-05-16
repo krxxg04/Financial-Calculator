@@ -2,7 +2,9 @@
 
 #include <string>
 
-namespace finance::infrastructure::utils {
+namespace finance {
+namespace infrastructure {
+namespace utils {
 
 class InputValidator {
 public:
@@ -16,4 +18,6 @@ private:
     static bool tryParseInt(const std::string& text, int& value);
 };
 
-}  // namespace finance::infrastructure::utils
+}  // namespace utils
+}  // namespace infrastructure
+}  // namespace finance
