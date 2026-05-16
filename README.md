@@ -35,19 +35,19 @@ Incluye calculos de interes, valor del dinero en el tiempo, conversiones de tasa
 
 ```text
 src/
-├── main.cpp
-├── domain/
-│   ├── entities/
-│   ├── value_objects/
-│   ├── services/
-│   └── exceptions/
-├── application/
-│   ├── use_cases/
-│   └── dto/
-├── infrastructure/
-│   ├── persistence/
-│   └── utils/
-└── presentation/
+|-- main.cpp
+|-- domain/
+|   |-- entities/
+|   |-- value_objects/
+|   |-- services/
+|   `-- exceptions/
+|-- application/
+|   |-- use_cases/
+|   `-- dto/
+|-- infrastructure/
+|   |-- persistence/
+|   `-- utils/
+`-- presentation/
 ```
 
 ## Requisitos
@@ -56,7 +56,7 @@ src/
 - CMake 3.16 o superior
 - Compilador compatible (`g++`, `clang++` o MSVC)
 
-## Compilación y ejecución
+## Compilacion y ejecucion
 
 ```bash
 cmake -S . -B build
@@ -70,7 +70,7 @@ En Windows con Visual Studio, el ejecutable suele quedar en:
 build/Debug/cpp-financial-calculator.exe
 ```
 
-## Tests básicos
+## Tests basicos
 
 El proyecto incluye pruebas simples sin librerias externas, usando `assert` y `CTest`.
 
@@ -78,7 +78,7 @@ El proyecto incluye pruebas simples sin librerias externas, usando `assert` y `C
 ctest --test-dir build --output-on-failure
 ```
 
-También puedes ejecutar directamente:
+Tambien puedes ejecutar directamente:
 
 ```bash
 ./build/financial_calculator_tests
