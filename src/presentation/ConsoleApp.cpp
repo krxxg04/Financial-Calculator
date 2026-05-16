@@ -1,6 +1,7 @@
 #include "presentation/ConsoleApp.h"
 
 #include <iostream>
+#include <string>
 
 #include "application/dto/CalculationInputDTO.h"
 #include "application/dto/RateConversionInputDTO.h"
